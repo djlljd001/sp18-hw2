@@ -51,7 +51,7 @@ public class GlobeSortClient {
 
         long endTime   = System.nanoTime();
         long totalTime = endTime - startTime;
-        System.out.println("######Total time is: " + totalTime);
+        System.out.println("######Total time is: " + totalTime*1.0/1000000000);
         System.out.println("Sorted array");
     }
 
