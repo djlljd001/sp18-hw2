@@ -44,14 +44,12 @@ public class GlobeSortClient {
         System.out.println("Ping successful.");
 
         System.out.println("Requesting server to sort array");
-
         long startTime = System.nanoTime();
         IntArray request = IntArray.newBuilder().addAllValues(Arrays.asList(values)).build();
         IntArray response = serverStub.sortIntegers(request);
-
         long endTime   = System.nanoTime();
         long totalTime = endTime - startTime;
-        System.out.println("######Total time is: " + totalTime*1.0/1000000000);
+        System.out.println("######One-way network throughput total time is: " + totalTime*1.0/1000000000);
         System.out.println("Sorted array");
     }
 
