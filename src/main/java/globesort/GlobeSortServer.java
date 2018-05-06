@@ -96,7 +96,7 @@ public class GlobeSortServer {
             IntArray response = responseBuilder.build();
             long endTime   = System.nanoTime();
             long totalTime = endTime - startTime;
-            System.out.println("######Total time is: "totalTime);
+            System.out.println("######Total time is: " + totalTime);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
