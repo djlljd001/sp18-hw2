@@ -79,9 +79,13 @@ public class GlobeSortServer {
     static class GlobeSortImpl extends GlobeSortGrpc.GlobeSortImplBase {
         @Override
         public void ping(Empty req, final StreamObserver<Empty> responseObserver) {
+            long startTime = System.nanoTime();
             Empty response = Empty.newBuilder().build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();
+            long endTime   = System.nanoTime();
+            long totalTime = endTime - startTime;
+            System.out.println("######Serverside ping total time is: " + totalTime*1.0/1000000000);
         }
 
         @Override
@@ -96,7 +100,7 @@ public class GlobeSortServer {
             IntArray response = responseBuilder.build();
             long endTime   = System.nanoTime();
             long totalTime = endTime - startTime;
-            System.out.println("######One-way network throughput total time is: " + totalTime*1.0/1000000000);
+            System.out.println("######Serverside Sort total time is: " + totalTime*1.0/1000000000);
             responseObserver.onNext(response);
             responseObserver.onCompleted();
         }
